@@ -41,7 +41,7 @@ export function RecentWork() {
                 title={project.title}
                 location={project.location}
                 variant={project.variant}
-                className="aspect-[4/3] transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-forest/10"
+                className="photo-shadow aspect-[4/3] transition duration-300 hover:-translate-y-1.5"
               />
             </motion.li>
           ))}

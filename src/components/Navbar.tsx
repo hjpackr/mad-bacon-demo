@@ -5,7 +5,7 @@ import { business, navLinks } from '../data'
 function BladeMark({ className = '' }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden>
-      <rect width="32" height="32" rx="8" fill="#0f2a1a" />
+      <rect width="32" height="32" rx="8" fill="#1f7a45" />
       <path
         d="M16 26c0 0-1.2-9.5-5.8-14.2C7.4 8.8 9.2 6 12 7.4c1.4.7 2.4 2.4 2.8 4.1C15.2 8.2 17.1 5 20.6 6.2c2.6.9 2.2 4.2-.2 6.8C16.8 16.8 16 26 16 26z"
         fill="#8bc34a"

@@ -43,7 +43,7 @@ export function Hero() {
             className="mt-4 max-w-xl text-base text-cream/70"
           >
             Neighbors in St. Johns taking care of residential and commercial
-            lawns — with a 100% service guarantee.
+            lawns, backed by a real service guarantee.
           </motion.p>
           <motion.div
             variants={fadeUp}

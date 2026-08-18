@@ -22,7 +22,7 @@ export function GrassDivider({
     const left = (i / count) * 100 + (n2 - 0.5) * 1.4
     const width = 5 + n3 * 7
     const tilt = (n - 0.5) * 14
-    const greens = ['#1e4d2b', '#2d6a3e', '#3d8b4a', '#4caf50', '#6bbf4e']
+    const greens = ['#2d9154', '#3aa15c', '#4caf50', '#6bbf4e', '#8fd08a']
     const fill = greens[i % greens.length]
 
     return { height, left, width, tilt, fill, delay: n * 2.1, dur: 2.4 + n2 * 2.2, riseDelay: n3 * 0.45 }
