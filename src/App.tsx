@@ -1,7 +1,6 @@
 import { About } from './components/About'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
-import { Guarantee } from './components/Guarantee'
 import { Hero } from './components/Hero'
 import { Navbar } from './components/Navbar'
 import { RecentWork } from './components/RecentWork'
@@ -16,7 +15,6 @@ export default function App() {
         <Hero />
         <About />
         <Services />
-        <Guarantee />
         <RecentWork />
         <Testimonials />
         <Contact />

@@ -3,12 +3,27 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { business } from '../data'
 import { fadeUp, stagger, viewport } from '../motion'
 
+function composeMailto(name: string, email: string, message: string) {
+  const subject = `Website inquiry from ${name}`
+  const body = `Name: ${name}\nEmail: ${email}\n\n${message}`
+  return `${business.emailHref}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+}
+
 export function Contact() {
   const reduce = useReducedMotion()
   const [submitted, setSubmitted] = useState(false)
+  const [mailtoHref, setMailtoHref] = useState(business.emailHref)
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const name = String(formData.get('name') ?? '').trim()
+    const email = String(formData.get('email') ?? '').trim()
+    const message = String(formData.get('message') ?? '').trim()
+    const href = composeMailto(name, email, message)
+
+    setMailtoHref(href)
+    window.location.href = href
     setSubmitted(true)
   }
 
@@ -57,11 +72,15 @@ export function Contact() {
           {submitted ? (
             <div className="rounded-3xl border border-grass/20 bg-leaf/10 p-8 sm:p-10">
               <p className="font-display text-2xl font-semibold text-forest">
-                Thanks — we got your note.
+                Thanks, we got your note.
               </p>
               <p className="mt-3 text-muted">
-                This demo doesn’t send email. For a real quote, call or text
-                Kristy at {business.phoneDisplay}.
+                Your email app should open with a message ready to send to{' '}
+                {business.email}. If it didn’t,{' '}
+                <a className="underline hover:text-grass" href={mailtoHref}>
+                  tap here to try again
+                </a>{' '}
+                or call Kristy at {business.phoneDisplay}.
               </p>
             </div>
           ) : (

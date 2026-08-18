@@ -1,13 +1,16 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { fadeUp, stagger, viewport } from '../motion'
+import { StJohnsTopo } from './StJohnsTopo'
 
 export function About() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="about" className="scroll-mt-24 bg-cream py-20 sm:py-28">
+    <section id="about" className="relative isolate scroll-mt-24 overflow-hidden bg-cream py-24 sm:py-32">
+      <StJohnsTopo />
+      <div className="pointer-events-none absolute inset-0 bg-cream/25" />
       <motion.div
-        className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16"
+        className="relative mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16"
         initial={reduce ? false : 'hidden'}
         whileInView="show"
         viewport={viewport}
@@ -24,12 +27,12 @@ export function About() {
         <div className="space-y-6 text-lg leading-relaxed text-muted lg:col-span-7">
           <motion.p variants={fadeUp}>
             Ours is a small, family-owned landscape company. We take care of the
-            dirty work so you can spend the weekend outside — not chasing the
+            dirty work so you can spend the weekend outside, not chasing the
             mower.
           </motion.p>
           <motion.p variants={fadeUp}>
             Why Mad Bacon? We get that a lot. The company is named after our
-            kids — Madeline, Baylor, and Connor. Mad-Bay-Con.
+            kids: Madeline, Baylor, and Connor. Mad-Bay-Con.
           </motion.p>
           <motion.p variants={fadeUp}>
             Residential or commercial, the promise is the same: a customer-first

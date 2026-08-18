@@ -1,19 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import logo from '../assets/madBaconLogo.png'
 import { business, navLinks } from '../data'
-
-function BladeMark({ className = '' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" className={className} aria-hidden>
-      <rect width="32" height="32" rx="8" fill="#1f7a45" />
-      <path
-        d="M16 26c0 0-1.2-9.5-5.8-14.2C7.4 8.8 9.2 6 12 7.4c1.4.7 2.4 2.4 2.8 4.1C15.2 8.2 17.1 5 20.6 6.2c2.6.9 2.2 4.2-.2 6.8C16.8 16.8 16 26 16 26z"
-        fill="#8bc34a"
-      />
-      <path d="M16 26V11.2" stroke="#2d6a3e" strokeWidth="1.4" strokeLinecap="round" />
-    </svg>
-  )
-}
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
@@ -23,7 +11,11 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-forest/10 bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-[4.25rem] sm:px-6">
         <a href="#home" className="flex items-center gap-2.5">
-          <BladeMark className="h-9 w-9" />
+          <img
+            src={logo}
+            alt=""
+            className="h-10 w-10 rounded-full object-cover ring-2 ring-forest/10 sm:h-11 sm:w-11"
+          />
           <span className="font-display text-lg font-semibold leading-tight text-forest sm:text-xl">
             Mad Bacon
             <span className="hidden text-grass sm:inline"> Landscaping</span>

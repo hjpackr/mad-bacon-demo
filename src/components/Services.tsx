@@ -1,7 +1,19 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import flowerImage from '../assets/flower.jpeg'
+import hedgeImage from '../assets/hedge.jpeg'
+import mowImage from '../assets/mow.jpeg'
+import mulchImage from '../assets/mulch.jpeg'
+import sodImage from '../assets/sod.jpeg'
 import { services } from '../data'
 import { fadeUp, stagger, viewport } from '../motion'
-import { ImagePlaceholder } from './ImagePlaceholder'
+
+const serviceImages: Record<string, string> = {
+  flower: flowerImage,
+  hedge: hedgeImage,
+  mow: mowImage,
+  mulch: mulchImage,
+  sod: sodImage,
+}
 
 export function Services() {
   const reduce = useReducedMotion()
@@ -23,8 +35,8 @@ export function Services() {
             Lawn care for home and business
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted">
-            Residential and commercial. Drop your own photos into these slots
-            when you’re ready.
+            Residential and commercial. Every visit is backed by a 100% service
+            guarantee.
           </motion.p>
         </motion.div>
 
@@ -41,9 +53,10 @@ export function Services() {
               variants={fadeUp}
               className={i === services.length - 1 ? 'sm:col-span-2 lg:col-span-1' : ''}
             >
-              <ImagePlaceholder
-                variant={i}
-                className="photo-shadow aspect-[4/3] transition duration-300 hover:-translate-y-1.5"
+              <img
+                src={serviceImages[service.image]}
+                alt={service.title}
+                className="photo-shadow aspect-[4/3] w-full rounded-2xl object-cover transition duration-300 hover:-translate-y-1.5"
               />
               <h3 className="mt-5 font-display text-xl font-semibold text-forest">
                 {service.title}

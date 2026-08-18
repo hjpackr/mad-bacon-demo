@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { projects } from '../data'
 import { fadeUp, stagger, viewport } from '../motion'
-import { ImagePlaceholder } from './ImagePlaceholder'
+import { BeforeAfterSlider } from './BeforeAfterSlider'
 
 export function RecentWork() {
   const reduce = useReducedMotion()
@@ -23,29 +22,20 @@ export function RecentWork() {
             Recent work around St. Johns
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted">
-            A look at yards we’ve been in lately. Photos here are placeholders
-            until the next round of job shots goes up.
+            Drag to compare before and after, then flip through a couple of
+            recent jobs.
           </motion.p>
         </motion.div>
 
-        <motion.ul
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        <motion.div
+          className="mt-10"
           initial={reduce ? false : 'hidden'}
           whileInView="show"
           viewport={viewport}
-          variants={stagger}
+          variants={fadeUp}
         >
-          {projects.map((project) => (
-            <motion.li key={project.title} variants={fadeUp}>
-              <ImagePlaceholder
-                title={project.title}
-                location={project.location}
-                variant={project.variant}
-                className="photo-shadow aspect-[4/3] transition duration-300 hover:-translate-y-1.5"
-              />
-            </motion.li>
-          ))}
-        </motion.ul>
+          <BeforeAfterSlider />
+        </motion.div>
       </div>
     </section>
   )
